@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/HRTodolost/static/css/main.e2a5dc85.css",
+    "main.js": "/HRTodolost/static/js/main.121f78e7.js",
+    "static/js/787.28cb0dcd.chunk.js": "/HRTodolost/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/HRTodolost/index.html",
+    "main.e2a5dc85.css.map": "/HRTodolost/static/css/main.e2a5dc85.css.map",
+    "main.121f78e7.js.map": "/HRTodolost/static/js/main.121f78e7.js.map",
+    "787.28cb0dcd.chunk.js.map": "/HRTodolost/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e2a5dc85.css",
+    "static/js/main.121f78e7.js"
+  ]
+}
