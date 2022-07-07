@@ -105,7 +105,7 @@ function App() {
         return (
             <Grid item>
                 <Paper elevation={2}
-                style={{padding: '20px'}}
+                style={{padding: '20px', marginLeft: '20px'}}
                 >
                     <TodoList
                         filter={el.filter}
@@ -123,11 +123,8 @@ function App() {
                     />
                 </Paper>
             </Grid>
-
         )
-
     })
-
 
     return (
         <div className="App">

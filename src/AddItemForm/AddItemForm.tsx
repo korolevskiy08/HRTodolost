@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useState, KeyboardEvent} from 'react';
 import ControlPointIcon from '@material-ui/icons/ControlPoint';
 import {IconButton, TextField} from "@material-ui/core";
 
@@ -11,6 +11,8 @@ type NewFormComponentType = {
 export const AddItemForm = ({addItem}:NewFormComponentType) => {
     const [title, setTitle] = useState('')
     const [error, setError] = useState<boolean>(false)
+
+
 
     const onChangeTaskTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const newTitle = e.currentTarget.value
@@ -27,6 +29,10 @@ export const AddItemForm = ({addItem}:NewFormComponentType) => {
         }
     }
 
+    const onKeyDawnHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+        if(e.ctrlKey && e.key === 'Enter') addTaskHandler()
+    }
+
     return (
         <div>
             <TextField
@@ -37,6 +43,7 @@ export const AddItemForm = ({addItem}:NewFormComponentType) => {
                 onChange={onChangeTaskTitleHandler}
                 error={error}
                 helperText={error && 'Title is required!'}
+                onKeyDown={onKeyDawnHandler}
             />
 
             <IconButton
