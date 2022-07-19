@@ -38,7 +38,7 @@ export const AddItemForm = ({addItem}:NewFormComponentType) => {
             <TextField
                 size={'small'}
                 label="Add new item"
-                variant="outlined"
+                variant="standard"
                 value={title}
                 onChange={onChangeTaskTitleHandler}
                 error={error}

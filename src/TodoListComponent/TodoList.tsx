@@ -5,7 +5,6 @@ import {AddItemForm} from "../AddItemForm/AddItemForm";
 import {Button, IconButton} from "@material-ui/core";
 import {FilterValueType} from "../App";
 import DeleteIcon from '@material-ui/icons/Delete';
-import ControlPointIcon from '@material-ui/icons/ControlPoint';
 
 export type TasksType = {
     id: string,
@@ -19,9 +18,9 @@ type TodoListType = {
     todolistTitle: string
     tasks: Array<TasksType>
     removeTask: (todolistID: string, taskID: string) => void
-    changeCheckBoxStatus: (todolistID: string, taskID: string, isDone: boolean) => void
+    changeTaskStatus: (todolistID: string, taskID: string, isDone: boolean) => void
     addTask: (todolistID: string, title: string) => void
-    filteredTask: (todolistID: string, value: FilterValueType) => void
+    changeTodoListFilter: (todolistID: string, value: FilterValueType) => void
     removeTodolist: (removeTodolist: string) => void
     changeTodoListTitle: (todolistID: string, title: string) => void
     changeTaskTitle: (todolistID: string, taskID: string, title: string) => void
@@ -31,9 +30,9 @@ export const TodoList = ({
                              filter,
                              tasks,
                              removeTask,
-                             changeCheckBoxStatus,
+                             changeTaskStatus,
                              addTask,
-                             filteredTask,
+                             changeTodoListFilter,
                              todolistTitle,
                              todolistID,
                              removeTodolist,
@@ -42,10 +41,10 @@ export const TodoList = ({
                          }: TodoListType) => {
 
     const removeTaskHandler = (todolistID: string, taskID: string) => removeTask(todolistID, taskID)
-    const changeCheckBoxHandler = (taskID: string, isDone: boolean) => changeCheckBoxStatus(todolistID, taskID, isDone)
+    const changeCheckBoxHandler = (taskID: string, isDone: boolean) => changeTaskStatus(todolistID, taskID, isDone)
 
     const filteredTaskHandler = (value: FilterValueType) => {
-        filteredTask(todolistID, value)
+        changeTodoListFilter(todolistID, value)
     }
 
     const removeTodolistHandler = () => {
@@ -61,7 +60,6 @@ export const TodoList = ({
     }
 
 
-
     return (
         <div>
             <ul>
@@ -71,7 +69,7 @@ export const TodoList = ({
                         size={'small'}
                         onClick={removeTodolistHandler}
                         aria-label="delete">
-                        <DeleteIcon />
+                        <DeleteIcon/>
                     </IconButton>
                 </div>
                 <div>
@@ -79,11 +77,7 @@ export const TodoList = ({
                         addItem={addTaskHandler}
                     />
                 </div>
-
-
                 {tasks.map(el => {
-
-
                     const changeTaskTitleHandler = (title: string) => {
                         changeTaskTitle(todolistID, el.id, title)
                     }
@@ -101,37 +95,39 @@ export const TodoList = ({
                                 size={'small'}
                                 onClick={() => removeTaskHandler(todolistID, el.id)}
                                 aria-label="delete">
-                                <DeleteIcon />
+                                <DeleteIcon/>
                             </IconButton>
                         </li>
                     )
                 })}
             </ul>
+            <div className={classes.buttonBlock}>
+                <Button
+                    style={filter === 'all' ? {backgroundColor: '#5B7065'} : {backgroundColor: '#C9D1C8'}}
+                    variant={"contained"}
+                    size={'small'}
+                    onClick={() => filteredTaskHandler('all')}
+                >
+                    All
+                </Button>
+                <Button
+                    style={filter === 'active' ? {backgroundColor: '#5B7065'} : {backgroundColor: '#C9D1C8'}}
+                    variant={"contained"}
+                    size={'small'}
+                    onClick={() => filteredTaskHandler('active')}
+                >
+                    Active
+                </Button>
+                <Button
+                    style={filter === 'completed' ? {backgroundColor: '#5B7065'} : {backgroundColor: '#C9D1C8'}}
+                    variant={"contained"}
+                    size={'small'}
+                    onClick={() => filteredTaskHandler('completed')}
+                >
+                    Completed
+                </Button>
+            </div>
 
-            <Button
-                style={filter === 'all' ?{backgroundColor: '#5B7065'} : {backgroundColor: '#C9D1C8'}}
-                variant={"contained"}
-                size={'small'}
-                onClick={() => filteredTaskHandler('all')}
-            >
-                All
-            </Button>
-            <Button
-                style={filter === 'active' ? {backgroundColor: '#5B7065'} : {backgroundColor: '#C9D1C8'}}
-                variant={"contained"}
-                size={'small'}
-                onClick={() => filteredTaskHandler('active')}
-            >
-                Active
-            </Button>
-            <Button
-                style={filter === 'completed' ?{backgroundColor: '#5B7065'} : {backgroundColor: '#C9D1C8'}}
-                variant={"contained"}
-                size={'small'}
-                onClick={() => filteredTaskHandler('completed')}
-            >
-                Completed
-            </Button>
         </div>
     );
 };
