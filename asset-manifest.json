@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/HRTodolost/static/css/main.e2a5dc85.css",
-    "main.js": "/HRTodolost/static/js/main.121f78e7.js",
+    "main.css": "/HRTodolost/static/css/main.cb7c048e.css",
+    "main.js": "/HRTodolost/static/js/main.8807eb3c.js",
     "static/js/787.28cb0dcd.chunk.js": "/HRTodolost/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/HRTodolost/index.html",
-    "main.e2a5dc85.css.map": "/HRTodolost/static/css/main.e2a5dc85.css.map",
-    "main.121f78e7.js.map": "/HRTodolost/static/js/main.121f78e7.js.map",
+    "main.cb7c048e.css.map": "/HRTodolost/static/css/main.cb7c048e.css.map",
+    "main.8807eb3c.js.map": "/HRTodolost/static/js/main.8807eb3c.js.map",
     "787.28cb0dcd.chunk.js.map": "/HRTodolost/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e2a5dc85.css",
-    "static/js/main.121f78e7.js"
+    "static/css/main.cb7c048e.css",
+    "static/js/main.8807eb3c.js"
   ]
 }
