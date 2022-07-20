@@ -5,7 +5,7 @@ import {TasksType, TodoList} from "./TodoListComponent/TodoList";
 import {AddItemForm} from "./AddItemForm/AddItemForm";
 import {
     AppBar,
-    Button, createTheme,
+    Button, createTheme, CssBaseline,
     Grid,
     IconButton,
     Paper, ThemeProvider,
@@ -18,7 +18,7 @@ import {PurpleSwitch} from "./PurpleSwitch/PurpleSwitch";
 
 export type FilterValueType = 'all' | 'active' | 'completed'
 
-type todolistType = {
+export type TodolistType = {
     id: string,
     title: string,
     filter: FilterValueType
@@ -41,7 +41,7 @@ function App() {
     const todolistID1 = v1()
     const todolistID2 = v1()
 
-    const [todolist, setTodolist] = useState<Array<todolistType>>([
+    const [todolist, setTodolist] = useState<Array<TodolistType>>([
         {id: todolistID1, title: 'What to learn', filter: 'all'},
         {id: todolistID2, title: 'What to buy', filter: 'all'}
     ])
@@ -95,7 +95,7 @@ function App() {
     }
     const addTodolist = (title: string) => {
         const newTodolistID = v1()
-        let newTodolist: todolistType = {
+        let newTodolist: TodolistType = {
             id: newTodolistID,
             title: title,
             filter: "all"
@@ -118,8 +118,8 @@ function App() {
         }
 
         return (
-
             <Grid item>
+                <CssBaseline/>
                 <Paper elevation={2}
                        style={{padding: '20px', marginLeft: '20px'}}
                 >
